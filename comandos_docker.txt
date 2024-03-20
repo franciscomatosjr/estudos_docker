@@ -1,0 +1,60 @@
+Aulas Docker
+
+Para listar todos os containers existentes
+> docker ps -a
+
+Para iniciar o container
+> docker start (id do container ou nome do container)
+    
+Para parar o container
+> docker stop (id do container ou nome do container)
+
+Executar comandos bash dentro da imagem do docker
+> docker exec -it <id da imagem> bash << tipo de comandos
+
+Sair de dentro do container
+CTRL + D
+
+
+
+Para parar o docker imediatamente
+docker stop -t=0 3823c104ae38
+
+Para remover um container 
+docker rm <id do container>
+
+Para instanciar um docker no modo interativo sem precisar de usar o sleep
+docker run -it <id da imagem> bash
+
+Para baixar uma imagem e ainda deixá-la em execução
+docker run -d dockersamples/static-site
+
+Para instalar um docker e expondo uma porta na máquina
+docker run -d -P dockersamples/static-site
+
+Para verificar as portas que estão sendo utilizadas pelo docker
+docker port <id do container>
+
+Para executar uma imagem que tenha um site e quando queremos especificar uma porta na nossa máquina, onde 8080 é a porta da máquina e a 80 é a porta do container, note que nesse caso o "p" é minúsculo
+docker run -d -p 8080:80 dockersamples/static-site
+
+
+
+Para criar uma imagem docker a partir de um arquivo dockerfile
+
+Entrar no diretório onde o dockerfile está
+
+docker build -t <nome da imagem>/<especificacao para que serve a imagem>:<versão 1.0> .
+
+Listar todos os dockers que estão em execução
+
+docker ps
+
+
+Para parar todos os containers de uma vez
+docker stop $(docker container ls -q)
+    - esse comando para todos os containers resultantes do comando docker container ls, o "-q" quiet significa que é para pegar o id do container
+    
+    
+    
+    
