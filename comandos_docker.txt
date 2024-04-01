@@ -55,6 +55,15 @@ Para parar todos os containers de uma vez
 docker stop $(docker container ls -q)
     - esse comando para todos os containers resultantes do comando docker container ls, o "-q" quiet significa que é para pegar o id do container
     
-    
-    
-    
+Os ARGS são utilizandos para a construção do container, já o ENV são variáveis utilizadas dentro do container.
+
+EXPOSE mostra para outras pessoas qual porta o container vai expor
+
+Subir uma imagem sua local do docker para o dockerhub
+docker push rairojr/app-node:1.0
+
+Excluir todos os containers do pc
+docker container rm $(docker container ls -aq)
+
+Excluir todas as imagens docker do pc
+docker rmi $(docker image ls -aq) --force
